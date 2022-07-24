@@ -29,7 +29,7 @@
             return inject(nodes, '', 'char');
         },
         words: function(nodes) {
-            return inject(nodes, ' ', 'word');
+            return inject(nodes, ' ', 'word', ' ');
         },
         lines: function(nodes) {
 
@@ -59,7 +59,7 @@
      * @param splitter
      * @param klass
      */
-    function inject(nodes, splitter, klass) {
+    function inject(nodes, splitter, klass, after) {
         for (let n = 0; n < nodes.length; n++) {
             let node = nodes[n],
                 wrappable = node.innerText.split(splitter);
@@ -75,6 +75,10 @@
                 span.textContent = wrappable[s];
 
                 node.appendChild(span);
+
+                if(typeof after !== 'undefined') {
+                    node.appendChild(document.createTextNode(after));
+                }
             }
         }
     }
