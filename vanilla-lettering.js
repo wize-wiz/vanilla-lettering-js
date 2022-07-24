@@ -3,7 +3,7 @@
  *
  * @author Koos Bloemsma - kb@git.wizdom.de
  * @date 22.07.2022
- * @version 1.1
+ * @version 1.1.1
  *
  * @usage
  *
@@ -83,9 +83,11 @@
             node.innerHTML = '';
 
             for(let s = 0; s < wrappable.length; s++) {
-                let span = document.createElement('span');
-                span.classList.add(klass + '' + (s+1));
-                span.textContent = wrappable[s];
+                let wrap = wrappable[s],
+                    span = document.createElement('span');
+
+                span.classList.add(klass + '' + ( wrap === ' ' ? '-space' : s+1));
+                span.textContent = wrap;
 
                 node.appendChild(span);
 
