@@ -3,7 +3,7 @@
  *
  * @author Koos Bloemsma - kb@git.wizdom.de
  * @date 22.07.2022
- * @version 1.1.1
+ * @version 1.2
  *
  * @usage
  *
@@ -38,7 +38,7 @@
     const HASH = 'eefec303079ad17405c889e092e105b0';
 
     /**
-     * Methods for chars, words and lines.
+     * Methods for chars, words, wordchars and lines.
      */
     let methods = {
         chars: function(nodes) {
@@ -46,6 +46,15 @@
         },
         words: function(nodes) {
             return inject(nodes, ' ', 'word', ' ');
+        },
+        wordchars: function(nodes, selector) {
+            inject(nodes, ' ', 'word', ' ');
+
+            let nodesu = document.querySelectorAll(selector);
+            // console.log(nodesu[0].childNodes);
+            for(let i = 0; i < nodesu.length; i++) {
+                this.chars(nodesu[i].childNodes);
+            }
         },
         lines: function(nodes) {
             // replace <br> with md5 hash eefec303079ad17405c889e092e105b0
@@ -75,11 +84,17 @@
      */
     function inject(nodes, splitter, klass, after) {
         for (let n = 0; n < nodes.length; n++) {
-            let node = nodes[n],
-                wrappable = node.innerText.split(splitter);
 
-            if(typeof wrappable.length === 'undefined') return;
+            let node = nodes[n];
+            if(!node.innerText)
+                continue;
 
+            let wrappable = node.innerText.split(splitter);
+
+            if(typeof wrappable.length === 'undefined')
+                return;
+
+            // empty
             node.innerHTML = '';
 
             for(let s = 0; s < wrappable.length; s++) {
@@ -128,11 +143,11 @@
      * @param nodes
      * @returns {*}
      */
-    function call(method, nodes) {
+    function call(method, nodes, selector) {
         // make sure nodes is a NodeList.
         nodes = convert(nodes);
 
-        return methods[method](nodes);
+        return methods[method](nodes, selector);
     }
     /**
      * Main lettering method, e.g. the init version of lettering.js
@@ -143,13 +158,15 @@
         if(!selector) {
             throw new Error('selector/element is invalid');
         }
-        let nodes = typeof selector === 'string' ?
-            document.querySelectorAll(selector) : selector;
 
+        if(typeof selector !== 'string')
+            throw new Error('selector expects to be a string');
+
+        let nodes = document.querySelectorAll(selector);
         if(!valid(method))
             throw new Error('unknown method `'+method+'`');
 
-        return call(method, nodes);
+        return call(method, nodes, selector);
     }
 
     return lettering;
