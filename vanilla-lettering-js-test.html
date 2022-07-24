@@ -11,23 +11,26 @@
 </head>
 <body>
 
-<div>
+<div class="do-chars">
     <span class="letterchars">An impossible event is an event that is non existing. There is no possibility that it can happen. Hence the probability of occurrence is 0.</span>
 </div>
-<div>
+<div class="do-words">
     <span class="letterwords">The simplest of competing theories be preferred to the more complex or that explanations of unknown phenomena be sought first in terms of known quantities.</span>
 </div>
-<div>
+<div class="do-lines">
     <span class="letterlines">Every record has been destroyed or falsified, every book rewritten,<br/>every picture has been repainted, every statue and street building has been renamed,<br/>every date has been altered.<br/>And the process is continuing day by day and minute by minute.<br/>History has stopped.</span>
+</div>
+<div class="do-attribute-lines">
+    <span data-lettering="lines">Every record has been destroyed or falsified, every book rewritten,<br/>every picture has been repainted, every statue and street building has been renamed,<br/>every date has been altered.<br/>And the process is continuing day by day and minute by minute.<br/>History has stopped.</span>
 </div>
 
 <script type="text/javascript">
     // $('.letterchars').lettering();
-    document.Tools.lettering('.letterchars');
-
-    // $('.letterwords').lettering('words);
+     document.Tools.lettering('.letterchars');
+    //
+    // // $('.letterwords').lettering('words);
     document.Tools.lettering('.letterwords', 'words');
-
+    //
     // $('.letterlines').lettering('lines');
     document.Tools.lettering('.letterlines', 'lines');
 </script>
