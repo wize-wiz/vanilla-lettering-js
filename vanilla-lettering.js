@@ -3,7 +3,7 @@
  *
  * @author Koos Bloemsma - kb@git.wizdom.de
  * @date 22.07.2022
- * @version 1.0
+ * @version 1.0.1
  *
  * @usage
  *
