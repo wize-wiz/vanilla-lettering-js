@@ -17,7 +17,7 @@
         // on document ready
         document.addEventListener("DOMContentLoaded", function() {
             const DATA_ATTR = 'data-lettering',
-                  METHODS = ['chars', 'words', 'lines'];
+                  METHODS = ['chars', 'words', 'wordchars', 'lines'];
             for(let i = 0; i < METHODS.length; i++) {
                 let method = METHODS[i];
                 // auto execute on attribute data-lettering='method' if found
