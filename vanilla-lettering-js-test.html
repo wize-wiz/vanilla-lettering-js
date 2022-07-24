@@ -17,6 +17,9 @@
 <div class="do-words">
     <span class="letterwords">The simplest of competing theories be preferred to the more complex or that explanations of unknown phenomena be sought first in terms of known quantities.</span>
 </div>
+<div class="do-wordchars">
+    <span class="letterwordchars">The simplest of competing theories be preferred to the more complex or that explanations of unknown phenomena be sought first in terms of known quantities.</span>
+</div>
 <div class="do-lines">
     <span class="letterlines">Every record has been destroyed or falsified, every book rewritten,<br/>every picture has been repainted, every statue and street building has been renamed,<br/>every date has been altered.<br/>And the process is continuing day by day and minute by minute.<br/>History has stopped.</span>
 </div>
@@ -26,10 +29,16 @@
 
 <script type="text/javascript">
     // $('.letterchars').lettering();
-     document.Tools.lettering('.letterchars');
+    document.Tools.lettering('.letterchars');
+
     //
-    // // $('.letterwords').lettering('words);
+    // $('.letterwords').lettering('words);
     document.Tools.lettering('.letterwords', 'words');
+
+    //
+    // $('.letterwords').lettering('words').children('span').lettering();
+    document.Tools.lettering('.letterwordchars', 'wordchars');
+
     //
     // $('.letterlines').lettering('lines');
     document.Tools.lettering('.letterlines', 'lines');
