@@ -152,9 +152,8 @@
      * @param type
      */
     function lettering(selector, method = 'chars') {
-        if(!selector) {
+        if(!selector)
             throw new Error('selector/element is invalid');
-        }
 
         if(typeof selector !== 'string')
             throw new Error('selector expects to be a string');
