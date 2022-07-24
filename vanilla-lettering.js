@@ -21,11 +21,8 @@
             for(let i = 0; i < METHODS.length; i++) {
                 let method = METHODS[i];
                 // auto execute on attribute data-lettering='method' if found
-                let nodes = document.querySelectorAll('['+DATA_ATTR+'="'+method+'"]');
-                if(nodes.length > 0) {
-                    // run on default method chars but data-lettering value is used instead.
-                    lettering(nodes, method);
-                }
+                // run on default method chars but data-lettering value is used instead.
+                lettering('['+DATA_ATTR+'="'+method+'"]', method);
             }
         });
 
